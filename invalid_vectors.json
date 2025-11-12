@@ -1,0 +1,105 @@
+{
+  "total_count": 20,
+  "vectors": [
+    {
+      "id": "04bb7dcf-f2e0-45af-aa16-3018896db1d5",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "12f4859a-801e-4e49-9ac9-716752a47163",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "1e7873ae-9296-4863-9acd-49ea0163bbb6",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "1f05968f-b098-4d7c-8e0f-a8ac70f55bc4",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "42efabe7-15b7-45f7-882c-2588dfb1645f",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "4808cfd3-20b1-4447-aff7-d171173cfa86",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "4c0a65a9-2dbe-42b1-8ff5-5b678967a541",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "72163bd3-a072-420f-b276-eefe3440d851",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "80b01ac8-65ad-44d8-b639-177b0efeb868",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "92bd210c-8f57-4849-949a-9b1f43926b45",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "a5e414ba-c7ec-48ed-b9bf-15977f48b3d2",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "aa854d96-3ed1-4e43-8b92-a7f543dcb3a5",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "ae3ac526-e18b-4e12-a4ca-d41ace4cf705",
+      "url": "",
+      "reason": "Contains PDF indicator: %PDF-"
+    },
+    {
+      "id": "b91cbc08-e236-480d-a53e-df4a9033853e",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "ba21a407-7d7f-4866-9209-2c47be5c4c9f",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "c48833a4-6fec-43f0-b78d-38b4ca1b1190",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "cad02dd6-37c8-41a2-9bf3-b8851ee8829f",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    },
+    {
+      "id": "e6b2157e-2c7d-4a25-8bfb-13a66eb7f7c4",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "e857bcc3-86b0-4ca8-ab8b-8956e88a9ac0",
+      "url": "",
+      "reason": "Contains PDF indicator: /Type /Page"
+    },
+    {
+      "id": "e9028ebe-62b4-4d56-9272-8d97da6d4eb2",
+      "url": "",
+      "reason": "Too many short words (likely binary)"
+    }
+  ]
+}

@@ -17,7 +17,6 @@ def prepare_context(docs: List[Document], max_length: int = 4000) -> str:
     """Prepare context from retrieved documents"""
     context_parts = []
     current_length = 0
-    
     for i, doc in enumerate(docs):
         source_info = f"[Source {i+1}: {doc.metadata.get('url', 'Unknown URL')}]"
         content = doc.page_content

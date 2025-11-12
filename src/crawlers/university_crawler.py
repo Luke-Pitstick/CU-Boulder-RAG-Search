@@ -37,6 +37,25 @@ class UniversitySpider(scrapy.Spider):
     
     def parse(self, response):
         """Parse each page, extract content, and follow links."""
+        
+        # Check content type - only process HTML
+        content_type = response.headers.get('Content-Type', b'').decode('utf-8', errors='ignore').lower()
+        
+        # Skip non-HTML content (PDFs, images, documents, etc.)
+        if not any(html_type in content_type for html_type in ['text/html', 'text/plain', 'application/xhtml']):
+            self.logger.warning(f'Skipping non-HTML content: {response.url} (Content-Type: {content_type})')
+            return
+        
+        # Additional URL-based filtering for PDFs and other files
+        url_lower = response.url.lower()
+        skip_extensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', 
+                          '.zip', '.tar', '.gz', '.rar', '.jpg', '.jpeg', '.png', 
+                          '.gif', '.svg', '.mp4', '.mp3', '.avi', '.mov', '.wav']
+        
+        if any(url_lower.endswith(ext) for ext in skip_extensions):
+            self.logger.warning(f'Skipping file with blocked extension: {response.url}')
+            return
+        
         # Extract text content
         page_data = {
             'url': response.url,

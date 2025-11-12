@@ -49,6 +49,9 @@ class CrawlerCreator:
             'file': 'src.filters.dupefilter.FileBasedDupeFilter',
         }
         
+        # Determine crawl order: BFS (breadth-first) or DFS (depth-first, default)
+        use_bfs = config_settings.get('USE_BFS', False)
+        
         settings.setdict({
             'USER_AGENT': config_settings.get(
                 'USER_AGENT', 
@@ -64,6 +67,10 @@ class CrawlerCreator:
             'HTTPCACHE_EXPIRATION_SECS': config_settings.get('HTTPCACHE_EXPIRATION_SECS', 86400),
             'HTTPCACHE_DIR': config_settings.get('HTTPCACHE_DIR', 'httpcache'),
             'BASE_URL': self.config['base_url'],
+            # BFS/DFS Configuration
+            'DEPTH_PRIORITY': 1 if use_bfs else 0,  # 1 = BFS (breadth-first), 0 = DFS (depth-first)
+            'SCHEDULER_DISK_QUEUE': 'scrapy.squeues.PickleFifoDiskQueue' if use_bfs else 'scrapy.squeues.PickleLifoDiskQueue',
+            'SCHEDULER_MEMORY_QUEUE': 'scrapy.squeues.FifoMemoryQueue' if use_bfs else 'scrapy.squeues.LifoMemoryQueue',
             # Shared duplicate filter for multi-spider coordination
             'DUPEFILTER_CLASS': dupefilter_mapping.get(dupefilter_class, dupefilter_mapping['redis']),
             'DUPEFILTER_REDIS_URL': config_settings.get('DUPEFILTER_REDIS_URL', 'redis://localhost:6379/0'),

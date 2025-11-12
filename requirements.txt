@@ -250,3 +250,4 @@ xxhash==3.6.0
 yarl==1.22.0
 zope.interface==8.1
 zstandard==0.25.0
+Flask==3.1.0

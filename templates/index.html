@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU Boulder Enhanced Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- Header -->
+        <header class="text-center mb-8 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-2">
+                🎓 CU Boulder Search
+            </h1>
+            <p class="text-gray-600 text-lg">
+                AI-powered search for CU Boulder information
+            </p>
+        </header>
+
+        <!-- Search Box -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8 fade-in">
+            <form id="searchForm" class="space-y-4">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Ask me anything about CU Boulder..." 
+                        class="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors"
+                        required
+                    />
+                </div>
+                <button 
+                    type="submit" 
+                    id="searchButton"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
+                >
+                    <span id="buttonText">🔍 Search</span>
+                    <div id="buttonSpinner" class="spinner hidden"></div>
+                </button>
+            </form>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden bg-white rounded-2xl shadow-xl p-8 mb-8 text-center fade-in">
+            <div class="spinner mx-auto mb-4"></div>
+            <p class="text-gray-600">Searching for answers...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden bg-red-50 border-l-4 border-red-500 rounded-lg p-6 mb-8 fade-in">
+            <div class="flex items-start">
+                <span class="text-2xl mr-3">❌</span>
+                <div>
+                    <h3 class="font-semibold text-red-800 mb-1">Error</h3>
+                    <p id="errorText" class="text-red-700"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer" class="hidden fade-in">
+            <!-- Answer Section -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
+                <div class="flex items-start mb-4">
+                    <span class="text-3xl mr-3">💡</span>
+                    <h2 class="text-2xl font-bold text-gray-800">Answer</h2>
+                </div>
+                <div id="answerContent" class="prose prose-lg max-w-none text-gray-700 leading-relaxed"></div>
+                
+                <!-- Metadata -->
+                <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <span>⏱️</span>
+                        <span>Response time: <strong id="responseTime">-</strong>s</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>📚</span>
+                        <span>Sources used: <strong id="sourcesCount">-</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sources Section -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="flex items-start mb-6">
+                    <span class="text-3xl mr-3">🔗</span>
+                    <h2 class="text-2xl font-bold text-gray-800">Sources</h2>
+                </div>
+                <div id="sourcesContent" class="space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-600">
+            <p class="text-sm">
+                Powered by RAG (Retrieval-Augmented Generation) with Ollama & Qdrant
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const buttonText = document.getElementById('buttonText');
+        const buttonSpinner = document.getElementById('buttonSpinner');
+        const loadingState = document.getElementById('loadingState');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const answerContent = document.getElementById('answerContent');
+        const responseTime = document.getElementById('responseTime');
+        const sourcesCount = document.getElementById('sourcesCount');
+        const sourcesContent = document.getElementById('sourcesContent');
+
+        // Format answer text with proper line breaks and formatting
+        function formatAnswer(text) {
+            // Convert markdown-like formatting to HTML
+            let formatted = text
+                .replace(/\n\n/g, '</p><p class="mb-4">')
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            return '<p class="mb-4">' + formatted + '</p>';
+        }
+
+        searchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            // Update UI to show loading state
+            searchButton.disabled = true;
+            buttonText.textContent = 'Searching...';
+            buttonSpinner.classList.remove('hidden');
+            loadingState.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            resultsContainer.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.status === 'error') {
+                    throw new Error(data.error || 'An error occurred during search');
+                }
+
+                // Display results
+                displayResults(data);
+
+            } catch (error) {
+                console.error('Search error:', error);
+                errorText.textContent = error.message;
+                errorMessage.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                searchButton.disabled = false;
+                buttonText.textContent = '🔍 Search';
+                buttonSpinner.classList.add('hidden');
+                loadingState.classList.add('hidden');
+            }
+        });
+
+        function displayResults(data) {
+            // Display answer
+            answerContent.innerHTML = formatAnswer(data.answer);
+
+            // Display metadata
+            responseTime.textContent = data.metadata.total_time;
+            sourcesCount.textContent = data.metadata.total_docs;
+
+            // Display sources
+            sourcesContent.innerHTML = '';
+            data.sources.forEach(source => {
+                const sourceCard = document.createElement('div');
+                sourceCard.className = 'p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all';
+                sourceCard.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <div class="bg-blue-100 text-blue-700 font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            ${source.id}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-semibold text-gray-800 mb-2">${source.title}</h3>
+                            <p class="text-sm text-gray-600 mb-2">${source.snippet}</p>
+                            <a href="${source.url}" target="_blank" rel="noopener noreferrer" 
+                               class="text-sm text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1">
+                                Visit source →
+                            </a>
+                        </div>
+                    </div>
+                `;
+                sourcesContent.appendChild(sourceCard);
+            });
+
+            // Show results
+            resultsContainer.classList.remove('hidden');
+            
+            // Smooth scroll to results
+            setTimeout(() => {
+                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+
+        // Example queries for quick access
+        const exampleQueries = [
+            "What are the admission requirements?",
+            "Tell me about computer science programs",
+            "What housing options are available?"
+        ];
+
+        // Optional: Add example query buttons (uncomment if desired)
+        /*
+        const examplesDiv = document.createElement('div');
+        examplesDiv.className = 'flex flex-wrap gap-2 mt-4';
+        exampleQueries.forEach(query => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 transition-colors';
+            btn.textContent = query;
+            btn.onclick = () => {
+                searchInput.value = query;
+                searchForm.dispatchEvent(new Event('submit'));
+            };
+            examplesDiv.appendChild(btn);
+        });
+        searchForm.appendChild(examplesDiv);
+        */
+    </script>
+</body>
+</html>

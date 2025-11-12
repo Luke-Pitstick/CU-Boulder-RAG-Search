@@ -18,15 +18,16 @@
     "settings": {
         "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "ROBOTSTXT_OBEY": true,
-        "DOWNLOAD_DELAY": 1,
+        "DOWNLOAD_DELAY": 8,
         "CONCURRENT_REQUESTS": 16,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 8,
         "DEPTH_LIMIT": 0,
-        "CLOSESPIDER_PAGECOUNT": 1000,
+        "CLOSESPIDER_PAGECOUNT": 200,
         "HTTPCACHE_ENABLED": true,
         "HTTPCACHE_EXPIRATION_SECS": 86400,
         "HTTPCACHE_DIR": "httpcache",
         "DUPEFILTER_CLASS": "redis",
-        "DUPEFILTER_DB_PATH": "shared_urls.db"
+        "DUPEFILTER_DB_PATH": "shared_urls.db",
+        "USE_BFS": true
     }
 }

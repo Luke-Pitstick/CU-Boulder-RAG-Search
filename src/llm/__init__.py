@@ -6,12 +6,11 @@ through Ollama integration, with comprehensive result formatting
 and source link extraction.
 
 Components:
-- EnhancedSearch: Main search class with LLM integration
-- ResultFormatter: Multiple output format support
-- SearchSession: Session management and history
+- setup_rag_system: Initialize RAG chain with embeddings and LLM
+- format_sources: Format document sources for display
+- prepare_context: Prepare context from retrieved documents
 """
 
-from .enhanced_search import EnhancedSearch
-from .result_formatter import ResultFormatter, SearchSession
+from .enhanced_search import setup_rag_system, format_sources, prepare_context
 
-__all__ = ['EnhancedSearch', 'ResultFormatter', 'SearchSession']
+__all__ = ['setup_rag_system', 'format_sources', 'prepare_context']

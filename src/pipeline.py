@@ -20,11 +20,27 @@ JAVASCRIPT_CODE = "{;if(!''.replace(/^/,String)){];;c=1};g{3 c=2.r();}}u(e){}}6 
 
 class DataCleaningPipeline:
     def __init__(self):
-        pass
+        self.dropped_count = 0
+        self.processed_count = 0
     
     def process_item(self, item, spider):
         """Clean HTML content by removing scripts, styles, and extracting clean text."""
+        self.processed_count += 1
+        
+        # First check if URL is valid (not a PDF, image, etc.)
+        if not self.is_valid_url(item.get('url', '')):
+            self.dropped_count += 1
+            from scrapy.exceptions import DropItem
+            raise DropItem(f"Invalid URL (PDF/binary file): {item.get('url', 'unknown')}")
+        
         item['text'] = self.clean_text(item['text'])
+        
+        # Validate the cleaned text to prevent corrupted data
+        if not self.is_valid_text(item['text']):
+            self.dropped_count += 1
+            from scrapy.exceptions import DropItem
+            raise DropItem(f"Corrupted or invalid text from {item.get('url', 'unknown')}")
+        
         return item
     
     def clean_text(self, text):
@@ -91,6 +107,85 @@ class DataCleaningPipeline:
         
         # Update the item
         return text
+    
+    def is_valid_url(self, url: str) -> bool:
+        """
+        Check if URL points to a valid HTML page (not PDF, image, etc.)
+        
+        Args:
+            url: The URL to validate
+        
+        Returns:
+            True if URL is valid, False otherwise
+        """
+        url_lower = url.lower()
+        
+        # File extensions that should not be in vector store
+        invalid_extensions = [
+            '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx',
+            '.zip', '.tar', '.gz', '.rar', '.7z',
+            '.jpg', '.jpeg', '.png', '.gif', '.svg', '.bmp', '.webp',
+            '.mp4', '.mp3', '.avi', '.mov', '.wmv', '.wav'
+        ]
+        
+        # Check if URL ends with or contains invalid extension
+        for ext in invalid_extensions:
+            if url_lower.endswith(ext):
+                return False
+            # Also check for extension in query params (e.g., file.pdf?download=1)
+            if f'{ext}?' in url_lower or f'{ext}#' in url_lower:
+                return False
+        
+        return True
+    
+    def is_valid_text(self, text: str, min_length: int = 50, max_replacement_ratio: float = 0.05) -> bool:
+        """
+        Validate that text is not corrupted.
+        
+        Args:
+            text: The text to validate
+            min_length: Minimum acceptable text length
+            max_replacement_ratio: Maximum ratio of replacement characters (�)
+        
+        Returns:
+            True if text is valid, False otherwise
+        """
+        if not text or len(text) < min_length:
+            return False
+        
+        # Check for excessive replacement characters (encoding errors)
+        replacement_count = text.count('�')
+        replacement_ratio = replacement_count / len(text)
+        
+        if replacement_ratio > max_replacement_ratio:
+            return False
+        
+        # Check for reasonable ASCII ratio (should be mostly readable English)
+        ascii_count = sum(1 for c in text if ord(c) < 128)
+        ascii_ratio = ascii_count / len(text)
+        
+        # Should be at least 70% ASCII for English text
+        if ascii_ratio < 0.7:
+            return False
+        
+        # Check for reasonable alphanumeric content
+        alnum_count = sum(1 for c in text if c.isalnum() or c.isspace())
+        alnum_ratio = alnum_count / len(text)
+        
+        # Should be at least 80% alphanumeric + spaces
+        if alnum_ratio < 0.8:
+            return False
+        
+        return True
+    
+    def close_spider(self, spider):
+        """Log statistics when spider closes"""
+        if self.processed_count > 0:
+            spider.logger.info(
+                f"Data Cleaning Pipeline: Processed {self.processed_count} items, "
+                f"dropped {self.dropped_count} corrupted items "
+                f"({self.dropped_count/self.processed_count*100:.1f}%)"
+            )
     
 class EmbeddingPipeline:
     def __init__(self):
