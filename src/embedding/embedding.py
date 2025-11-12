@@ -1,7 +1,17 @@
+import warnings
+import logging
+import os
+
+# Suppress warnings and verbose output
+warnings.filterwarnings('ignore')
+logging.getLogger('transformers').setLevel(logging.ERROR)
+logging.getLogger('sentence_transformers').setLevel(logging.ERROR)
+logging.getLogger('httpx').setLevel(logging.ERROR)
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
-from tqdm import tqdm
 
 class HuggingFaceEmbedder:
     def __init__(self, model_name="intfloat/e5-base-v2"):
@@ -33,11 +43,10 @@ class HuggingFaceEmbedder:
         chunk_embeddings = self.embed_document(document)
 
         results = []
-        for chunk, emb in tqdm(chunk_embeddings, desc=f"Embedding {item['url'][:50]}"):
+        for chunk, emb in chunk_embeddings:
             results.append({
                 "text": chunk.page_content,
                 "embedding": emb
             })
-            #tqdm.write(f"Vector length: {len(emb)} for chunk: {chunk.page_content[:60]}...")
         
         return results

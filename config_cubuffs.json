@@ -1,0 +1,33 @@
+{
+    "base_url": "https://cubuffs.com/",
+    "crawl_rules": {
+        "allow_patterns": [],
+        "deny_patterns": [
+            "/login",
+            "/logout",
+            "/admin",
+            "\\.pdf$",
+            "\\.jpg$",
+            "\\.png$",
+            "\\.gif$",
+            "\\.zip$",
+            "\\.doc$",
+            "\\.docx$"
+        ]
+    },
+    "settings": {
+        "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "ROBOTSTXT_OBEY": true,
+        "DOWNLOAD_DELAY": 8,
+        "CONCURRENT_REQUESTS": 16,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 8,
+        "DEPTH_LIMIT": 0,
+        "CLOSESPIDER_PAGECOUNT": 300,
+        "HTTPCACHE_ENABLED": true,
+        "HTTPCACHE_EXPIRATION_SECS": 86400,
+        "HTTPCACHE_DIR": "httpcache_cubuffs",
+        "DUPEFILTER_CLASS": "redis",
+        "DUPEFILTER_DB_PATH": "shared_urls.db",
+        "USE_BFS": true
+    }
+}

@@ -7,7 +7,9 @@ import scrapy
 from .university_crawler import UniversitySpider
 
 class CrawlerCreator:
-    def __init__(self, config_path: str = 'config.json'):
+    def __init__(self, config_path: str = 'config.json', *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
         self.config = self._load_config(config_path)
         self.settings = self._build_scrapy_settings()
     
@@ -47,10 +49,16 @@ class CrawlerCreator:
             'redis': 'src.filters.dupefilter.RedisBasedDupeFilter',
             'sqlite': 'src.filters.dupefilter.SQLiteBasedDupeFilter',
             'file': 'src.filters.dupefilter.FileBasedDupeFilter',
+            'qdrant': 'src.filters.qdrant_dupefilter.QdrantDupeFilter',
         }
         
         # Determine crawl order: BFS (breadth-first) or DFS (depth-first, default)
         use_bfs = config_settings.get('USE_BFS', False)
+        
+        if self.kwargs.get('pagecount', None):
+            settings.setdict({
+                'CLOSESPIDER_PAGECOUNT': self.kwargs.get('pagecount', 30) + 1
+            })
         
         settings.setdict({
             'USER_AGENT': config_settings.get(
@@ -58,11 +66,13 @@ class CrawlerCreator:
                 'Mozilla/5.0 (compatible; CustomCrawler/1.0)'
             ),
             'ROBOTSTXT_OBEY': config_settings.get('ROBOTSTXT_OBEY', True),
+            # Suppress verbose logging to prevent vector printing
+            'LOG_LEVEL': 'ERROR',
+            'LOG_STDOUT': False,
             'DOWNLOAD_DELAY': config_settings.get('DOWNLOAD_DELAY', 1),
             'CONCURRENT_REQUESTS': config_settings.get('CONCURRENT_REQUESTS', 16),
             'CONCURRENT_REQUESTS_PER_DOMAIN': config_settings.get('CONCURRENT_REQUESTS_PER_DOMAIN', 8),
             'DEPTH_LIMIT': config_settings.get('DEPTH_LIMIT', 0),  # 0 = no limit
-            'CLOSESPIDER_PAGECOUNT': config_settings.get('CLOSESPIDER_PAGECOUNT', 0),  # 0 = no limit
             'HTTPCACHE_ENABLED': config_settings.get('HTTPCACHE_ENABLED', True),
             'HTTPCACHE_EXPIRATION_SECS': config_settings.get('HTTPCACHE_EXPIRATION_SECS', 86400),
             'HTTPCACHE_DIR': config_settings.get('HTTPCACHE_DIR', 'httpcache'),
@@ -77,6 +87,8 @@ class CrawlerCreator:
             'DUPEFILTER_DB_PATH': config_settings.get('DUPEFILTER_DB_PATH', 'shared_urls.db'),
             'DUPEFILTER_FILE_PATH': config_settings.get('DUPEFILTER_FILE_PATH', 'seen_urls.txt'),
             'DUPEFILTER_KEY_PREFIX': config_settings.get('DUPEFILTER_KEY_PREFIX', 'scrapy:dupefilter'),
+            'QDRANT_URL': config_settings.get('QDRANT_URL', 'http://localhost:6333'),
+            'QDRANT_COLLECTION': config_settings.get('QDRANT_COLLECTION', 'cuboulder_pages'),
             # Configure item pipelines
             'ITEM_PIPELINES': {
                 'src.pipeline.DataCleaningPipeline': 100,

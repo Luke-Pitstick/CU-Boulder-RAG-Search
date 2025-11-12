@@ -22,11 +22,11 @@
         "CONCURRENT_REQUESTS": 16,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 8,
         "DEPTH_LIMIT": 0,
-        "CLOSESPIDER_PAGECOUNT": 200,
+        "CLOSESPIDER_PAGECOUNT": 30,
         "HTTPCACHE_ENABLED": true,
         "HTTPCACHE_EXPIRATION_SECS": 86400,
         "HTTPCACHE_DIR": "httpcache",
-        "DUPEFILTER_CLASS": "redis",
+        "DUPEFILTER_CLASS": "qdrant",
         "DUPEFILTER_DB_PATH": "shared_urls.db",
         "USE_BFS": true
     }

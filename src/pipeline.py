@@ -91,6 +91,9 @@ class DataCleaningPipeline:
         
         # Remove specific JavaScript code (literal string replacement)
         text = text.replace(JAVASCRIPT_CODE, '')
+        text = text.replace("googleTranslateElementInit\d*\(\)", "")
+        
+        text = text.replace("", "")
         
         # Remove CSS class references (like .ucb-bootstrap-layout-section .section-6896110c4f3b9)
         text = re.sub(r'\.[a-zA-Z0-9_-]+(\s+\.[a-zA-Z0-9_-]+)*', '', text)  # Remove class selectors
@@ -212,23 +215,36 @@ class VectorDatabasePipeline:
         # Set a collection name for your university data
         self.collection_name = "cuboulder_pages"
 
-        # Create the collection if it doesn't exist
-        self.client.recreate_collection(
-            collection_name=self.collection_name,
-            vectors_config={"size": 768, "distance": "Cosine"}
-        )
+        # Create the collection if it doesn't exist (but don't recreate if it already exists)
+        if not self.client.collection_exists(collection_name=self.collection_name):
+            self.client.create_collection(
+                collection_name=self.collection_name,
+                vectors_config={"size": 768, "distance": "Cosine"}
+            )
 
-        # Wrap in LangChain’s vectorstore for convenience
+        # Wrap in LangChain's vectorstore for convenience
         self.vectorstore = Qdrant(
             client=self.client,
             collection_name=self.collection_name,
             embeddings=self.embeddings
         )
+        
+        # Initialize progress tracking
+        self.pages_processed = 0
+        self.pbar = None
 
+    def open_spider(self, spider):
+        """Initialize progress bar when spider opens."""
+        self.pbar = tqdm(desc="Processing pages", unit="page", dynamic_ncols=True)
+    
+    def close_spider(self, spider):
+        """Close progress bar when spider closes."""
+        if self.pbar is not None:
+            self.pbar.close()
+            print(f"\n✅ Total pages processed: {self.pages_processed}")
+    
     def process_item(self, item, spider):
-        """Insert crawled item’s embeddings into Qdrant."""
-        #tqdm.write(f"Inserting item: {item['url']}")
-
+        """Insert crawled item's embeddings into Qdrant."""
         docs = [
             Document(
                 page_content=chunk["text"],
@@ -242,5 +258,11 @@ class VectorDatabasePipeline:
         ]
 
         self.vectorstore.add_documents(docs)
-        tqdm.write(f"✅ Inserted {len(docs)} chunks for {item['url']}")
+        
+        # Update progress bar
+        self.pages_processed += 1
+        if self.pbar is not None:
+            self.pbar.update(1)
+            self.pbar.set_postfix({"chunks": len(docs), "url": item['url'][:50]})
+        
         return item
