@@ -63,10 +63,16 @@ logs/
 httpcache/
 seen_urls.txt
 shared_urls.db
+output/*
+!output/.gitkeep
+*.jsonl
 
 # Qdrant vector store data
 qdrant_data/
+invalid_vectors.json
 
 # OS / miscellaneous
 *.swp
 *.swo
+.DS_Store
+**/.DS_Store
