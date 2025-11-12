@@ -1,0 +1,26 @@
+Content-Length: 335
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762875609"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 15:40:09 GMT
+Location: https://www.colorado.edu/health/hours
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Drupal-Route-Normalizer: 1
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-a-66d74d4b8b-j5dn9
+X-Styx-Req-Id: b41e03ee-bf14-11f0-9c02-2aca60fb30c1
+Age: 50580
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:43:10 GMT
+X-Served-By: cache-chi-klot8100051-CHI, cache-den-kden1300042-DEN, cache-den-kden1300075-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 1, 0, 0
+X-Timer: S1762926190.989562,VS0,VE16
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

@@ -1,0 +1,26 @@
+Content-Length: 475
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762888927"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 19:22:07 GMT
+Location: https://www.colorado.edu/registrar/students/state-residency/admitted/cof
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-a-66d74d4b8b-j5dn9
+X-Redirect-Id: 399
+X-Styx-Req-Id: b6c321fa-bf33-11f0-9c02-2aca60fb30c1
+Age: 76674
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 16:40:01 GMT
+X-Served-By: cache-chi-klot8100101-CHI, cache-den-kden1300039-DEN, cache-den-kden1300033-DEN
+X-Cache: MISS, HIT, MISS
+X-Cache-Hits: 0, 0, 0
+X-Timer: S1762965602.649231,VS0,VE5
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

@@ -1,0 +1,26 @@
+Content-Length: 523
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762909250"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 01:00:50 GMT
+Location: https://www.colorado.edu/researchinnovation/node/8547/research-institutes-cu-boulder
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-58gq6
+X-Redirect-Id: 763
+X-Styx-Req-Id: 0804676b-bf63-11f0-a99b-1607d41f8f59
+Age: 56317
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 16:39:27 GMT
+X-Served-By: cache-chi-klot8100149-CHI, cache-den-kden1300097-DEN, cache-den-kden1300033-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 10, 0, 0
+X-Timer: S1762965568.511822,VS0,VE4
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

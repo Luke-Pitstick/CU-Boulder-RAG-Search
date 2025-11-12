@@ -1,0 +1,27 @@
+Content-Length: 205
+Cache-Control: max-age=86400, public
+Content-Encoding: gzip
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: W/"1762926274"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 05:44:34 GMT
+Location: https://libraries.colorado.edu
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-a-66d74d4b8b-w5n9x
+X-Redirect-Id: 1188
+X-Styx-Req-Id: ab2a8f08-bf8a-11f0-a79f-6e88f293dc14
+Age: 0
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:44:34 GMT
+X-Served-By: cache-chi-kigq8000100-CHI, cache-den-kden1300084-DEN, cache-den-kden1300092-DEN
+X-Cache: MISS, MISS, MISS
+X-Cache-Hits: 0, 0, 0
+X-Timer: S1762926275.632109,VS0,VE72
+Vary: Accept-Encoding, Cookie, X-Consumer-ID, Cookie, Cookie

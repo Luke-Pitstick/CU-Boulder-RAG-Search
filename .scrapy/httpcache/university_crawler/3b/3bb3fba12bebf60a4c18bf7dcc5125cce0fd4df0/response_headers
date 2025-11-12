@@ -1,0 +1,26 @@
+Content-Length: 399
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762881054"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 17:10:54 GMT
+Location: https://www.colorado.edu/leadershipsupport/five-goals
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Drupal-Route-Normalizer: 1
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-xmhq8
+X-Styx-Req-Id: 61f1dc02-bf21-11f0-8030-b29eb4b21290
+Age: 45078
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:42:13 GMT
+X-Served-By: cache-chi-kigq8000121-CHI, cache-den-kden1300076-DEN, cache-den-kden1300036-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 2, 0, 0
+X-Timer: S1762926134.683365,VS0,VE42
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

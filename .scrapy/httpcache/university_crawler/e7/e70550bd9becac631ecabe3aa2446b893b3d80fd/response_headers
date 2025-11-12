@@ -1,0 +1,26 @@
+Content-Length: 446
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762907314"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 00:28:34 GMT
+Location: https://www.colorado.edu/about/land-acknowledgment
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-qfppr
+X-Redirect-Id: 1283
+X-Styx-Req-Id: 85f606be-bf5e-11f0-a169-2241498256e4
+Age: 58850
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 16:49:24 GMT
+X-Served-By: cache-chi-klot8100102-CHI, cache-den-kden1300045-DEN, cache-den-kden1300023-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 17, 0, 0
+X-Timer: S1762966165.534084,VS0,VE8
+Vary: Cookie, X-Consumer-ID, Cookie, Cookie

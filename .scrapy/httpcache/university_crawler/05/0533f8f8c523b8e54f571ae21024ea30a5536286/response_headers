@@ -1,0 +1,26 @@
+Content-Length: 466
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762880157"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 16:55:57 GMT
+Location: https://www.colorado.edu/admissions/cost/estimated-cost
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-lq82s
+X-Redirect-Id: 1447
+X-Styx-Req-Id: 4aff9467-bf1f-11f0-979f-9e245e58ebff
+Age: 86003
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 16:49:21 GMT
+X-Served-By: cache-chi-klot8100101-CHI, cache-den-kden1300089-DEN, cache-den-kden1300090-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 6, 0, 0
+X-Timer: S1762966161.060187,VS0,VE5
+Vary: Cookie, X-Consumer-ID, Cookie, Cookie

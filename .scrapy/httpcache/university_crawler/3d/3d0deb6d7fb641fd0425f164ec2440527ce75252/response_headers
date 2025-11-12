@@ -1,0 +1,26 @@
+Content-Length: 347
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762874564"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 15:22:44 GMT
+Location: https://www.colorado.edu/bursar/services
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-z2ffs
+X-Redirect-Id: 622
+X-Styx-Req-Id: 4545e568-bf12-11f0-85ed-bea3667cc798
+Age: 51636
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:43:19 GMT
+X-Served-By: cache-chi-klot8100100-CHI, cache-den-kden1300059-DEN, cache-den-kden1300075-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 1, 0, 0
+X-Timer: S1762926200.843311,VS0,VE12
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

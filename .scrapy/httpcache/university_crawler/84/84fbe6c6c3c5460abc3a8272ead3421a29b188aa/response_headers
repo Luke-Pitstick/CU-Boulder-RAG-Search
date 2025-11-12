@@ -1,0 +1,26 @@
+Content-Length: 450
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762886855"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 18:47:35 GMT
+Location: https://www.colorado.edu/academics/colleges-schools
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Drupal-Route-Normalizer: 1
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-a-66d74d4b8b-xwrff
+X-Styx-Req-Id: e3c61dad-bf2e-11f0-abb0-022d44476434
+Age: 80117
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 17:02:53 GMT
+X-Served-By: cache-chi-kigq8000074-CHI, cache-den-kden1300058-DEN, cache-den-kden1300082-DEN
+X-Cache: HIT, HIT, MISS
+X-Cache-Hits: 15, 10, 0
+X-Timer: S1762966973.108782,VS0,VE5
+Vary: Cookie, X-Consumer-ID, Cookie, Cookie

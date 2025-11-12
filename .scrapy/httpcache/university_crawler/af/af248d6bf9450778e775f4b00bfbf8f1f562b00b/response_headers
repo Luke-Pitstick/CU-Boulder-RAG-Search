@@ -1,0 +1,26 @@
+Content-Length: 431
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762926204"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 05:43:24 GMT
+Location: https://www.colorado.edu/healthcenter/services/allergy-clinic
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-bmzpc
+X-Redirect-Id: 99
+X-Styx-Req-Id: 81262749-bf8a-11f0-874a-fa3fb10f76e1
+Age: 0
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:43:24 GMT
+X-Served-By: cache-chi-klot8100080-CHI, cache-den-kden1300071-DEN, cache-den-kden1300075-DEN
+X-Cache: MISS, MISS, MISS
+X-Cache-Hits: 0, 0, 0
+X-Timer: S1762926204.127611,VS0,VE197
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

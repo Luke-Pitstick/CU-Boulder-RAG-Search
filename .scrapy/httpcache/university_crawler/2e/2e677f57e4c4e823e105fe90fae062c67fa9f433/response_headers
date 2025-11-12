@@ -1,0 +1,26 @@
+Content-Length: 419
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762875879"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 15:44:39 GMT
+Location: https://www.colorado.edu/events/2018/10/01/canceling-event
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Drupal-Route-Normalizer: 1
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-bmzpc
+X-Styx-Req-Id: 550c593d-bf15-11f0-874a-fa3fb10f76e1
+Age: 50274
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:42:33 GMT
+X-Served-By: cache-chi-kigq8000112-CHI, cache-den-kden1300054-DEN, cache-den-kden1300036-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 3, 0, 0
+X-Timer: S1762926154.506688,VS0,VE40
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

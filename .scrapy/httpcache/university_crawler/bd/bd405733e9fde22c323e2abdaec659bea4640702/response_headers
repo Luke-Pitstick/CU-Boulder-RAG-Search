@@ -1,0 +1,26 @@
+Content-Length: 391
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762874141"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 15:15:41 GMT
+Location: https://www.colorado.edu/hr/faculty-and-staff-perks
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-mkhhs
+X-Redirect-Id: 300
+X-Styx-Req-Id: 493054ba-bf11-11f0-806c-828576734a63
+Age: 52005
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:42:26 GMT
+X-Served-By: cache-chi-kigq8000103-CHI, cache-den-kden1300061-DEN, cache-den-kden1300036-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 6, 0, 0
+X-Timer: S1762926146.000647,VS0,VE40
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

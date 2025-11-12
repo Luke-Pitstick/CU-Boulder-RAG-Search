@@ -1,0 +1,26 @@
+Content-Length: 495
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762923600"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 05:00:00 GMT
+Location: https://www.colorado.edu/leadershipsupport/action-plan/action-planning-status
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Drupal-Route-Normalizer: 1
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-58gq6
+X-Styx-Req-Id: 7182bc37-bf84-11f0-a99b-1607d41f8f59
+Age: 2534
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:42:15 GMT
+X-Served-By: cache-chi-klot8100054-CHI, cache-den-kden1300042-DEN, cache-den-kden1300036-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 1, 0, 0
+X-Timer: S1762926135.176629,VS0,VE52
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

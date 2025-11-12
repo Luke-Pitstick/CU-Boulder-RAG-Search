@@ -1,0 +1,26 @@
+Content-Length: 411
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762872141"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Tue, 11 Nov 2025 14:42:21 GMT
+Location: https://www.colorado.edu/financialaid/paying-for-college
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-8bwz7
+X-Redirect-Id: 139
+X-Styx-Req-Id: a12a0945-bf0c-11f0-9bef-ea3e4644b558
+Age: 53998
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:42:19 GMT
+X-Served-By: cache-chi-kigq8000153-CHI, cache-den-kden1300066-DEN, cache-den-kden1300036-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 7, 0, 0
+X-Timer: S1762926140.780331,VS0,VE31
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

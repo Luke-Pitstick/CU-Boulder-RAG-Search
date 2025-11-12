@@ -1,0 +1,26 @@
+Content-Length: 459
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762926248"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 05:44:08 GMT
+Location: https://www.colorado.edu/hr/faculty-and-staff-engagement-survey-2025
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-qfppr
+X-Redirect-Id: 520
+X-Styx-Req-Id: 9bd0b5b9-bf8a-11f0-a169-2241498256e4
+Age: 0
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 05:44:09 GMT
+X-Served-By: cache-chi-kigq8000098-CHI, cache-den-kden1300061-DEN, cache-den-kden1300075-DEN
+X-Cache: MISS, MISS, MISS
+X-Cache-Hits: 0, 0, 0
+X-Timer: S1762926249.846083,VS0,VE218
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie
