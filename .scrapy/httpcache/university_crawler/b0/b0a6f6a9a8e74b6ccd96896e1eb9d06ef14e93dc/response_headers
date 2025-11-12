@@ -1,0 +1,27 @@
+Content-Length: 343
+Access-Control-Allow-Origin: *
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762906995"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 00:23:15 GMT
+Location: https://www.colorado.edu/news/formedia/
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-qfppr
+X-Redirect-Id: 4191
+X-Styx-Req-Id: c8097d38-bf5d-11f0-a169-2241498256e4
+Age: 66639
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 18:53:54 GMT
+X-Served-By: cache-chi-kigq8000173-CHI, cache-den-kden1300093-DEN, cache-den-kden1300061-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 27, 0, 0
+X-Timer: S1762973634.309004,VS0,VE27
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie

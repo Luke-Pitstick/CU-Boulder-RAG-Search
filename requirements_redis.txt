@@ -1,4 +1,0 @@
-# Optional: Redis support for distributed multi-spider coordination
-# Install with: pip install -r requirements_redis.txt
-
-redis>=4.5.0

@@ -1,0 +1,22 @@
+Content-Length: 1039173
+Cache-Control: public
+Content-Language: en
+Content-Type: image/png
+Last-Modified: Thu, 03 Apr 2025 13:33:44 GMT
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-8bwz7
+X-Styx-Req-Id: 44f7969c-bffa-11f0-9bef-ea3e4644b558
+Age: 0
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 19:03:27 GMT
+X-Served-By: cache-chi-klot8100045-CHI, cache-den-kden1300053-DEN, cache-den-kden1300054-DEN
+X-Cache: MISS, MISS, MISS
+X-Cache-Hits: 0, 0, 0
+X-Timer: S1762974207.805922,VS0,VE211
+Vary: adv-cdn-origin, X-Consumer-ID

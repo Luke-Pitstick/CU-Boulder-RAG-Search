@@ -6,10 +6,17 @@
 
 # TODO: Implement pipeline
 
-JAVASCRIPT_CODE = "{;if(!''.replace(/^/,String)){];;c=1};g{3 c=2.r();}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\\'\\')v;3 b=[1];3 c;3 d=2.x(\\'y\\');z(3 i=0;i<d.5;i++)4(d[i].A==\\'B-C-D\\')c=d[i];4(2.j(\\'k\\')==E||2.j(\\'k\\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\\'m\\');7(c,\\'m\\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById||innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))"
-
 from bs4 import BeautifulSoup
 import re
+from src.embedding import HuggingFaceEmbedder
+from tqdm import tqdm
+from langchain_qdrant import Qdrant
+from langchain_huggingface import HuggingFaceEmbeddings
+from qdrant_client import QdrantClient
+from langchain_core.documents import Document
+
+JAVASCRIPT_CODE = "{;if(!''.replace(/^/,String)){];;c=1};g{3 c=2.r();}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\\'\\')v;3 b=[1];3 c;3 d=2.x(\\'y\\');z(3 i=0;i<d.5;i++)4(d[i].A==\\'B-C-D\\')c=d[i];4(2.j(\\'k\\')==E||2.j(\\'k\\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\\'m\\');7(c,\\'m\\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById||innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))"
+
 
 class DataCleaningPipeline:
     def __init__(self):
@@ -87,17 +94,58 @@ class DataCleaningPipeline:
     
 class EmbeddingPipeline:
     def __init__(self):
-        pass
+        self.embedder = HuggingFaceEmbedder()
     
     def process_item(self, item, spider):
-        print(item)
+        tqdm.write(f"Processing item: {item['url']}")
+        item['embeddings'] = self.embedder.process_item(item, spider)
+        tqdm.write(f"Processed item: {item['url']}")
         return item
     
 
 class VectorDatabasePipeline:
     def __init__(self):
-        pass
-    
+        # Connect to your local Qdrant instance
+        self.client = QdrantClient(url="http://localhost:6333")
+
+        # Initialize embeddings (same model as your embedder)
+        self.embeddings = HuggingFaceEmbeddings(
+            model_name="intfloat/e5-base-v2",
+            model_kwargs={"device": "mps"}
+        )
+
+        # Set a collection name for your university data
+        self.collection_name = "cuboulder_pages"
+
+        # Create the collection if it doesn't exist
+        self.client.recreate_collection(
+            collection_name=self.collection_name,
+            vectors_config={"size": 768, "distance": "Cosine"}
+        )
+
+        # Wrap in LangChain’s vectorstore for convenience
+        self.vectorstore = Qdrant(
+            client=self.client,
+            collection_name=self.collection_name,
+            embeddings=self.embeddings
+        )
+
     def process_item(self, item, spider):
-        print(item)
+        """Insert crawled item’s embeddings into Qdrant."""
+        tqdm.write(f"Inserting item: {item['url']}")
+
+        docs = [
+            Document(
+                page_content=chunk["text"],
+                metadata={
+                    "url": item["url"],
+                    "title": item.get("title", ""),
+                    "source": "cuboulder_scraper"
+                }
+            )
+            for chunk in item["embeddings"]
+        ]
+
+        self.vectorstore.add_documents(docs)
+        tqdm.write(f"✅ Inserted {len(docs)} chunks for {item['url']}")
         return item

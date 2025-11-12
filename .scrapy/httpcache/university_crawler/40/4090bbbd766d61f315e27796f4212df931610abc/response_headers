@@ -1,0 +1,26 @@
+Content-Length: 446
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762946368"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 11:19:28 GMT
+Location: https://www.colorado.edu/admissions/why-cu-boulder
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-qfppr
+X-Redirect-Id: 1284
+X-Styx-Req-Id: 742be96c-bfb9-11f0-a169-2241498256e4
+Age: 27823
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 19:03:11 GMT
+X-Served-By: cache-chi-kigq8000178-CHI, cache-den-kden1300090-DEN, cache-den-kden1300054-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 4, 0, 0
+X-Timer: S1762974192.952062,VS0,VE27
+Vary: Cookie, X-Consumer-ID, Cookie, Cookie

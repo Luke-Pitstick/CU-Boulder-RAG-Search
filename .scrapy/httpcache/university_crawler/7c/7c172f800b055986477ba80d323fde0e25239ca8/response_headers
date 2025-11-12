@@ -1,0 +1,12 @@
+Content-Length: 0
+Server: Varnish
+Retry-After: 0
+Location: /compliance
+Accept-Ranges: bytes
+Date: Wed, 12 Nov 2025 19:03:30 GMT
+Via: 1.1 varnish
+Strict-Transport-Security: max-age=300; includeSubDomains;
+X-Served-By: cache-den-kden1300054-DEN
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1762974210.121193,VS0,VE0

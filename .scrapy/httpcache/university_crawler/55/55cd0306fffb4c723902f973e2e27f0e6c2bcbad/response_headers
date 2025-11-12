@@ -1,0 +1,26 @@
+Content-Length: 475
+Cache-Control: max-age=86400, public
+Content-Language: en
+Content-Type: text/html; charset=utf-8
+Etag: "1762930626"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Wed, 12 Nov 2025 06:57:06 GMT
+Location: https://www.colorado.edu/oiec/policies/protected-class-nondiscrimination
+Server: nginx
+Strict-Transport-Security: max-age=300
+X-Consumer-Id: default_consumer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 10 (https://www.drupal.org)
+X-Pantheon-Styx-Hostname: styx-fe1-b-5c496764c4-z2ffs
+X-Redirect-Id: 87
+X-Styx-Req-Id: cccc03b3-bf94-11f0-85ed-bea3667cc798
+Age: 43585
+Accept-Ranges: bytes
+Via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Date: Wed, 12 Nov 2025 19:03:30 GMT
+X-Served-By: cache-chi-klot8100048-CHI, cache-den-kden1300076-DEN, cache-den-kden1300020-DEN
+X-Cache: HIT, MISS, MISS
+X-Cache-Hits: 12, 0, 0
+X-Timer: S1762974211.855423,VS0,VE38
+Vary: adv-cdn-origin, Cookie, X-Consumer-ID, Cookie, Cookie
