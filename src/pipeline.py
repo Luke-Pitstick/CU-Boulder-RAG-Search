@@ -97,9 +97,9 @@ class EmbeddingPipeline:
         self.embedder = HuggingFaceEmbedder()
     
     def process_item(self, item, spider):
-        tqdm.write(f"Processing item: {item['url']}")
+        #tqdm.write(f"Processing item: {item['url']}")
         item['embeddings'] = self.embedder.process_item(item, spider)
-        tqdm.write(f"Processed item: {item['url']}")
+        #tqdm.write(f"Processed item: {item['url']}")
         return item
     
 
@@ -132,7 +132,7 @@ class VectorDatabasePipeline:
 
     def process_item(self, item, spider):
         """Insert crawled item’s embeddings into Qdrant."""
-        tqdm.write(f"Inserting item: {item['url']}")
+        #tqdm.write(f"Inserting item: {item['url']}")
 
         docs = [
             Document(
